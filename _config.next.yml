@@ -1,0 +1,189 @@
+# ===============================================================
+# NexT Theme Configuration (Alternate Config)
+# See: https://theme-next.js.org/docs/getting-started/configuration
+# ===============================================================
+
+# ---------------------------------------------------------------
+# Scheme Settings - 选择 Gemini 方案（与原站一致）
+# ---------------------------------------------------------------
+scheme: Gemini
+
+# 暗色模式
+darkmode: false
+
+# ---------------------------------------------------------------
+# Site Information Settings
+# ---------------------------------------------------------------
+favicon:
+  small: /images/favicon-16x16-next.png
+  medium: /images/favicon-32x32-next.png
+  apple_touch_icon: /images/apple-touch-icon-next.png
+  safari_pinned_tab: /images/logo.svg
+
+# Open Graph
+open_graph:
+  enable: true
+  options:
+    twitter_card: summary
+
+# ---------------------------------------------------------------
+# Menu Settings - 左侧分类入口
+# ---------------------------------------------------------------
+menu:
+  home: / || fa fa-home
+  categories: /categories/ || fa fa-th
+  archives: /archives/ || fa fa-archive
+  tags: /tags/ || fa fa-tags
+  about: /about/ || fa fa-user
+  # 搜索
+  search: /search/ || fa fa-search
+
+menu_settings:
+  icons: true
+  badges: true
+
+# ---------------------------------------------------------------
+# Sidebar Settings - 左侧侧边栏
+# ---------------------------------------------------------------
+sidebar:
+  position: left
+  width_expanded: 320
+  width_dual_column: 240
+  display: post
+  padding: 18
+  offset: 12
+
+# 侧边栏头像
+avatar:
+  url: /images/avatar.png
+  rounded: false
+  rotated: false
+
+# 站点状态（文章/分类/标签数量）
+site_state: true
+
+# 目录
+toc:
+  enable: true
+  number: true
+  wrap: false
+  expand_all: false
+  max_depth: 6
+
+# ---------------------------------------------------------------
+# Footer Settings
+# ---------------------------------------------------------------
+footer:
+  since: 2020
+  icon:
+    name: fa fa-heart
+    animated: false
+    color: "#ff0000"
+  copyright: gaofeicm
+
+# ---------------------------------------------------------------
+# Post Settings
+# ---------------------------------------------------------------
+excerpt_description: true
+read_more_btn: true
+
+post_meta:
+  item_text: true
+  created_at: true
+  updated_at:
+    enable: true
+    another_day: true
+  categories: true
+
+# ---------------------------------------------------------------
+# Misc Theme Settings - 响应式布局
+# ---------------------------------------------------------------
+# 移动端布局优化
+mobile_layout_economy: false
+
+# 主题色
+theme_color:
+  light: "#222"
+  dark: "#222"
+
+# 回到顶部
+back2top:
+  enable: true
+  sidebar: false
+  scrollpercent: true
+
+# GitHub Corner
+github_banner:
+  enable: true
+  permalink: https://github.com/gaofeicm
+
+# ---------------------------------------------------------------
+# Animation Settings - 页面动效
+# ---------------------------------------------------------------
+motion:
+  enable: true
+  async: false
+  transition:
+    menu_item: fadeInDown
+    post_block: fadeIn
+    post_header: fadeInDown
+    post_body: fadeInDown
+    coll_header: fadeInLeft
+    sidebar: fadeInUp
+
+# ---------------------------------------------------------------
+# Third Party Services
+# ---------------------------------------------------------------
+
+# 本地搜索
+local_search:
+  enable: true
+  trigger: auto
+  top_n_per_article: 1
+  unescape: false
+  preload: false
+
+# 不蒜子统计
+busuanzi_count:
+  enable: true
+  total_visitors: true
+  total_views: true
+  post_views: true
+  post_pv: true
+
+# Pjax（启用以提升页面切换体验）
+pjax: true
+
+# Lazyload 图片懒加载
+lazyload: true
+
+# ---------------------------------------------------------------
+# Custom Files - 自定义文件路径
+# ---------------------------------------------------------------
+custom_file_path:
+  # 自定义头部
+  #head: source/_data/head.njk
+  # 自定义侧边栏 (暂时禁用，使用默认)
+  #sidebar: source/_data/sidebar.njk
+  # 自定义样式
+  style: source/_data/styles.styl
+  # 自定义底部脚本
+  bodyEnd: source/_data/body-end.njk
+
+# ---------------------------------------------------------------
+# Custom Effects - 自定义特效开关
+# ---------------------------------------------------------------
+fireworks:
+  enable: true
+
+love:
+  enable: true
+
+snow:
+  enable: false
+
+canvas_nest:
+  enable: true
+
+canvas_ribbon:
+  enable: false

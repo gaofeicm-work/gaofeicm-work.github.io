@@ -1,0 +1,62 @@
+name: Deploy Blog
+
+on:
+  push:
+    branches:
+      - main      # 当推送到 main 分支时触发
+      - master    # 当推送到 master 分支时触发
+  workflow_dispatch:  # 允许手动触发
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true  # 包含 submodule（如 NexT 主题）
+          fetch-depth: 0    # 获取完整历史用于主题更新
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'  # 使用 Node.js 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install  # 使用 npm install 而不是 npm ci
+
+      - name: Build Hexo
+        env:
+          ### 如果需要配置 Algolia 搜索，取消下面的注释并填入值
+          # ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          # ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          ### 如果需要配置 Google Analytics，取消下面的注释并填入值
+          # GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
+        run: |
+          npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,28 @@
+{#
+  Custom Body End Scripts
+  Include custom effects and third-party scripts
+#}
+
+<!-- Custom Effects -->
+{% if theme.fireworks.enable %}
+<script src="{{ url_for('js/fireworks.js') }}"></script>
+{% endif %}
+
+{% if theme.love.enable %}
+<script src="{{ url_for('js/love.js') }}"></script>
+{% endif %}
+
+{% if theme.snow.enable %}
+<script src="{{ url_for('js/snow.js') }}"></script>
+{% endif %}
+
+{% if theme.canvas_nest.enable %}
+<script src="{{ url_for('js/canvas-nest.js') }}"></script>
+{% endif %}
+
+<!-- Canvas Ribbon Effect (Optional) -->
+{% if theme.canvas_ribbon.enable %}
+<script>
+  !function(){function e(){var e=document.createElement("script"),t=document.head||document.getElementsByTagName("head")[0],a=Math.floor(document.body.clientWidth/2);e.src="{{ url_for('lib/canvas-ribbon.js') }}",e.style.cssText="position:fixed;top:0;left:"+a+"px;z-index:-1;",t.appendChild(e)}window.addEventListener("load",e),document.addEventListener("pjax:send",function(){document.getElementsByTagName("head")[0].removeChild(document.querySelector('script[src*="canvas-ribbon"]'))})}();
+</script>
+{% endif %}
