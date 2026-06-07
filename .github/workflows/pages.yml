@@ -36,12 +36,6 @@ jobs:
         run: npm install  # 使用 npm install 而不是 npm ci
 
       - name: Build Hexo
-        env:
-          ### 如果需要配置 Algolia 搜索，取消下面的注释并填入值
-          # ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          # ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-          ### 如果需要配置 Google Analytics，取消下面的注释并填入值
-          # GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
         run: |
           npm run build
 
